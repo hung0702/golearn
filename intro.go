@@ -128,26 +128,63 @@ Arrays: all elements same type (not immut), fixed length, and zero-indexed.
 // 	fmt.Println(OddNums[2])
 // }
 
+/*
+Slicing arrays: slices reference an array, and are resizable. Can make, copy,
+append and slice again.
+*/
+
+// func main() {
+// 	OddNums := [4]int{1, 3, 5, 7} // shorthand init/decl array elements
+// 	// for _, value := range OddNums { // no iterator; range returns value only
+// 	// 	fmt.Println(value)
+// 	// }
+// 	// fmt.Println(OddNums[2])
+// 	for i, value := range OddNums { // with iterator; range returns value + it
+// 		fmt.Println(i, value)
+// 	}
+// 	arrayToSlice := []int{5, 4, 3, 2, 1} // array; no fixed length
+// 	sliced := arrayToSlice[3:5] // slice of an array; 2nd index not inclusive
+// 	fmt.Println(sliced)
+// 	slice2 := make([]int, 5, 10) // make a slice (type, length, capacity)
+// 	copy(slice2, arrayToSlice) // copy a slice (destination, source)
+// 	fmt.Println(arrayToSlice)
+// 	slice3 := append(slice2, 6, 7, 8) // append to a slice
+// 	fmt.Println(slice3)
+// }
+
 func main() {
-	OddNums := [4]int{1, 3, 5, 7} // shorthand init/decl array elements
 
-	// for _, value := range OddNums { // no iterator; range returns value only
-	// 	fmt.Println(value)
-	// }
-	// fmt.Println(OddNums[2])
+	StudentAge := make(map[string]int)
 
-	for i, value := range OddNums { // with iterator; range returns value + it
-		fmt.Println(i, value)
+	StudentAge["Helen"] = 30
+	StudentAge["Hung"] = 33
+	StudentAge["Hieu"] = 35
+	StudentAge["Hoa"] = 37
+	fmt.Println(StudentAge)          // prints entire map
+	fmt.Println(StudentAge["Helen"]) // prints key's value
+
+	// why doesn't this work????
+	kitties : map[string]map[string]string{
+		"Cali": map[string]string{
+			"coat":     "Calico"
+			"weight":   "300g"
+	},
+		"White Paws": map[string]string{
+			"coat":     "Black and White"
+			"weight":   "338g"
+	},
+		"All Black": map[string]string{
+			"coat":     "Black"
+			"weight":   "302g"
+	},
+		"Tabby": map[string]string{
+			"coat":     "Tabby"
+			"weight":   "342g"
+	},
+}
+
+	if temp, kitten := kitties["Cali"]; kitten {
+
+		fmt.Println(temp["RealName"], temp["coat"], temp["weight"])
 	}
-
-	numSlice := []int{5, 4, 3, 2, 1} // slice; no fixed length
-
-	sliced := numSlice[3:5] // slice of a slice; 2nd index not inclusive
-
-	fmt.Println(sliced)
-
-	slice2 := make([]int, 5, 10) // make a slice (type, length, capacity)
-
-	copy(slice2, numSlice) // copy a slice (destination, source)
-
 }
