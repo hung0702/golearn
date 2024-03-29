@@ -1,5 +1,17 @@
 package main
 
+import "fmt"
+
+func main() {
+	name := "Bob"
+
+	fmt.Println(len(name))
+	fmt.Println(name + " is ok")
+
+	const pi = 3.14159
+	fmt.Printf("")
+}
+
 // "strconv"
 
 // func main() {
@@ -28,15 +40,16 @@ package main
 // 	fmt.Print(&a)
 
 // }
-func main() {
 
-	x := 10
+// func main() {
 
-	changeValue(&x)
-	print(x)
-}
+// 	x := 10
 
-func changeValue(x *int) {
+// 	changeValue(&x)
+// 	print(x)
+// }
 
-	*x = 7
-}
+// func changeValue(x *int) {
+
+// 	*x = 7
+// }
