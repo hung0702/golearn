@@ -259,8 +259,31 @@ Panic: Like an exception; stops fxn, starts panic; deferred fxns still run.
 // 	return solution
 // }
 
+// func main() {
+// 	fmt.Println(addemup(1, 2, 3, 4, 5))
+// }
+
+// func addemup(args ...int) int { // variadic fxns take any number of arguments
+
+// 	total := 0
+// 	for _, value := range args { // range returns index and value
+// 		total += value
+// 	}
+// 	return total
+// }
+
+/*
+Structures: arrays but allows different data types; can define objects
+Interfaces: collection of methods; can be used to define behavior.
+*/
+
 func main() {
-	fmt.Println(addemup(1, 2, 3, 4, 5))
+	cali := kitten{name: "Cali", coat: "Calico", weight: "300g"}
+	fmt.Println(cali)
 }
 
-func addemup()
+type kitten struct {
+	name   string
+	coat   string
+	weight string
+}
