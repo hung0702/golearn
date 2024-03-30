@@ -154,37 +154,36 @@ append and slice again.
 
 func main() {
 
-	StudentAge := make(map[string]int)
+	// StudentAge := make(map[string]int)
 
-	StudentAge["Helen"] = 30
-	StudentAge["Hung"] = 33
-	StudentAge["Hieu"] = 35
-	StudentAge["Hoa"] = 37
-	fmt.Println(StudentAge)          // prints entire map
-	fmt.Println(StudentAge["Helen"]) // prints key's value
+	// StudentAge["Helen"] = 30
+	// StudentAge["Hung"] = 33
+	// StudentAge["Hieu"] = 35
+	// StudentAge["Hoa"] = 37
+	// fmt.Println(StudentAge)          // prints entire map
+	// fmt.Println(StudentAge["Helen"]) // prints key's value
 
-	// why doesn't this work????
-	kitties : map[string]map[string]string{
+	kitties := map[string]map[string]string{
 		"Cali": map[string]string{
-			"coat":     "Calico"
-			"weight":   "300g"
-	},
+			"coat":   "Calico",
+			"weight": "300g",
+		},
 		"White Paws": map[string]string{
-			"coat":     "Black and White"
-			"weight":   "338g"
-	},
+			"coat":   "Black and White",
+			"weight": "338g",
+		},
 		"All Black": map[string]string{
-			"coat":     "Black"
-			"weight":   "302g"
-	},
+			"coat":   "Black",
+			"weight": "302g",
+		},
 		"Tabby": map[string]string{
-			"coat":     "Tabby"
-			"weight":   "342g"
-	},
-}
+			"coat":   "Tabby",
+			"weight": "342g",
+		},
+	}
 
 	if temp, kitten := kitties["Cali"]; kitten {
 
-		fmt.Println(temp["RealName"], temp["coat"], temp["weight"])
+		fmt.Println("Cali", temp["coat"], temp["weight"])
 	}
 }
