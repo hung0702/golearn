@@ -1,8 +1,9 @@
 package main
 
 import (
+	"fmt"
 	"log"
-	"os"
+	"net/http"
 )
 
 // "strconv"
@@ -333,18 +334,51 @@ animal since name is repeated, and only specify unique variables for each struct
 // }
 
 /*
-File handling: read, write, create, delete, rename, etc.
+File handling and error logging
+*/
+
+// func main() {
+
+// 	file, err := os.Create("example.txt")
+
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+
+// 	file.WriteString("Hi, I'm a file and I'm here to stay!")
+// 	file.Close()
+
+// 	stream, err := os.ReadFile("example.txt")
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	s1 := string(stream)
+
+// 	fmt.Println(s1)
+// }
+
+/*
+HTTP server: easy to start one
+To stop: had to kill process; must be a less janky way
 */
 
 func main() {
 
-	file, err := os.Create("example.txt")
-
+	http.HandleFunc("/", handler)
+	http.HandleFunc("/Hello", handler2)
+	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal("ListenAndServe: ", err)
 	}
 
-	file.WriteString("Hi, I'm a file and I'm here to stay!")
-	file.Close()
+}
 
+func handler(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Fprint(w, "Welcome to the Internet!")
+}
+
+func handler2(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Fprint(w, "Ayyyyyloha!")
 }
