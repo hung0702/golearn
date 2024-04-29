@@ -29,8 +29,15 @@ func main() {
 	e, f := 5, 6 // shorthand to declare and initialize 1 or more vars
 	g := true
 	h := false
-	fmt.Println(a, bInt, c, d, e, f, 5+e%int(c), g && h || h)
-	fmt.Print(&a) // print pointer
+
+	fmt.Println(a, b, c, d, f) // println adds space after each, new line at the end
+	fmt.Println(bInt)
+	fmt.Println(5 + e%int(c))
+	fmt.Println(g && h || h)
+
+	fmt.Print(&a, "\n")   // print pointer
+	fmt.Printf("%T\n", b) // print type of b
+	PrintfExamples()
 }
 
 /*
@@ -45,3 +52,16 @@ Types
 * float32	float64
 * complex64	complex128
 */
+
+func PrintfExamples() { // Printf to format output
+	// PascalCase exports vs camelCase
+	wbo := true
+	const pi = 3.14
+	fmt.Printf("%.2f \n", pi) // %f for float, .2 for precision
+	fmt.Printf("%T \n", pi)   // print the var type
+	fmt.Printf("%t \n", wbo)  // printing boolean values requires lowercase t
+	fmt.Printf("%b \n", 25)   // binary
+	fmt.Printf("%c \n", 34)   // characters of the code value
+	fmt.Printf("%x \n", 34)   // hex code
+	fmt.Printf("%e \n", pi)   // scientific notation
+}
