@@ -6,50 +6,7 @@ import (
 	"net/http"
 )
 
-/*
-Printf is used to format output.
-*/
 
-// func main() {
-// 	wbo := true
-// 	const pi = 3.14
-// 	fmt.Printf("%.2f \n", pi) // %f for float, .2 for precision
-// 	fmt.Printf("%T \n", pi)   // print the var type
-// 	fmt.Printf("%t \n", wbo)  // printing boolean values requires lowercase t
-// 	fmt.Printf("%b \n", 25)   // binary
-// 	fmt.Printf("%c \n", 34)   // characters of the code value
-// 	fmt.Printf("%x \n", 34)   // hex code
-// 	fmt.Printf("%e \n", pi)   // scientific notation
-// }
-
-/*
- For loops are used to iterate through a block of code. Nested for loops are used to iterate through a block of code within a block of code.
-*/
-
-// func main() {
-// 	for i := 1; i < 5; i++ { // init/decl iterator; limit; incrementation
-// 		fmt.Println(i)
-// 	}
-// }
-
-// func main() {
-// 	// while loop version
-// 	i := 1      // init/decl iterator
-// 	for i < 5 { // limit
-// 		fmt.Println(i)
-// 		i++ // incrementation
-// 	}
-// }
-
-// func main() {
-// 	// while loop version
-// 	for i := 1; i < 5; i++ {
-// 		for j := 1; j < i; j++ {
-// 			fmt.Printf("*")
-// 		}
-// 		fmt.Println()
-// 	}
-// }
 
 /*
 If/Switch statements for conditional logic
