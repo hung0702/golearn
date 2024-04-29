@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"log"
+	"net/http"
+)
 
 // "strconv"
 
@@ -152,40 +156,231 @@ append and slice again.
 // 	fmt.Println(slice3)
 // }
 
+// func main() {
+
+// 	// StudentAge := make(map[string]int)
+
+// 	// StudentAge["Helen"] = 30
+// 	// StudentAge["Hung"] = 33
+// 	// StudentAge["Hieu"] = 35
+// 	// StudentAge["Hoa"] = 37
+// 	// fmt.Println(StudentAge)          // prints entire map
+// 	// fmt.Println(StudentAge["Helen"]) // prints key's value
+
+// 	kitties := map[string]map[string]string{
+// 		"Cali": map[string]string{
+// 			"coat":   "Calico",
+// 			"weight": "300g",
+// 		},
+// 		"White Paws": map[string]string{
+// 			"coat":   "Black and White",
+// 			"weight": "338g",
+// 		},
+// 		"All Black": map[string]string{
+// 			"coat":   "Black",
+// 			"weight": "302g",
+// 		},
+// 		"Tabby": map[string]string{
+// 			"coat":   "Tabby",
+// 			"weight": "342g",
+// 		},
+// 	}
+
+// 	if temp, kitten := kitties["Cali"]; kitten {
+
+// 		fmt.Println("Cali", temp["coat"], temp["weight"])
+// 	}
+// }
+
+/*
+Functions
+*/
+
+// func main() {
+
+// 	x, y := 50, 600
+// 	fmt.Println(add(x, y))
+
+// }
+
+// func add(x, y int) int { // name, parameters (type, can be multi), return type
+// 	return x + y
+// }
+
+/*
+Recursion via factorial (function calls itself for next member and has exit condition)
+*/
+
+// func main() {
+// 	fmt.Println(factorial(5))
+// }
+
+// func factorial(x int) int {
+// 	if x == 0 {
+// 		return 1
+// 	}
+// 	return x * factorial(x-1)
+// }
+
+/*
+Defer: defers fxn exec until surrounding function returns. LIFO. Generally:
+cleans up resources e.g. db conxns.
+Recover: return to normal after panic; stops panic, returns value that caused
+panic. Generally: used with defer in goroutines.
+Panic: Like an exception; stops fxn, starts panic; deferred fxns still run.
+*/
+
+// func main() {
+
+// 	defer FirstRun()
+// 	SecondRun()
+
+// }
+
+// func FirstRun() {
+// 	fmt.Println("deferred First")
+// }
+
+// func SecondRun() {
+// 	fmt.Println("Second")
+// }
+
+// func main() {
+// 	// fmt.Println(div(3, 9))
+// 	fmt.Println(div(3, 0))
+// }
+
+// func div(x, y int) float64 {
+// 	defer func() {
+// 		if y == 0 {
+// 			fmt.Println("Division by zero")
+// 		}
+// 		if recover() != nil { // conditionally print recover()
+// 			fmt.Println(recover())
+// 		}
+// 	}()
+// 	solution := float64(x) / float64(y)
+// 	return solution
+// }
+
+// func main() {
+// 	fmt.Println(addemup(1, 2, 3, 4, 5))
+// }
+
+// func addemup(args ...int) int { // variadic fxns take any number of arguments
+
+// 	total := 0
+// 	for _, value := range args { // range returns index and value
+// 		total += value
+// 	}
+// 	return total
+// }
+
+/*
+Structures: arrays but allows different data types; can define objects
+Interfaces: collection of methods; can be used to define behavior.
+*/
+
+/*
+The animal interface allows for kitten and dog structs, which both have
+different variables and different weight units. For each struct, a specific
+metrictooz function will convert the weight based on known input unit. The
+printWeightInOz function only serves to consistently print the weight, easing
+future maintenance.
+
+Use PascalCase for public scope, camelCase for private scope.
+
+An enhanced implementation of this below function would use embedded struct for
+animal since name is repeated, and only specify unique variables for each struct
+(animal).
+*/
+
+// func main() {
+// 	cali := Kitten{Name: "Cali", Coat: "Calico", grams: 300}
+// 	imaginary := Dog{Name: "Spot", kilograms: 5}
+
+// 	fmt.Println(cali)
+// 	printWeightInOz(cali)
+
+// 	fmt.Println(imaginary)
+// 	printWeightInOz(imaginary)
+// }
+
+// type Animal interface {
+// 	metrictooz() float32
+// }
+
+// type Kitten struct {
+// 	Name  string
+// 	Coat  string
+// 	grams int
+// }
+
+// type Dog struct {
+// 	Name      string
+// 	kilograms int
+// }
+
+// func (k Kitten) metrictooz() float32 {
+// 	return float32(k.grams) * 0.03527396
+// }
+
+// func (d Dog) metrictooz() float32 {
+// 	return float32(d.kilograms) * 35.27396
+// }
+
+// func printWeightInOz(a Animal) {
+// 	fmt.Println("Weight in oz: ", a.metrictooz())
+// }
+
+/*
+File handling and error logging
+*/
+
+// func main() {
+
+// 	file, err := os.Create("example.txt")
+
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+
+// 	file.WriteString("Hi, I'm a file and I'm here to stay!")
+// 	file.Close()
+
+// 	stream, err := os.ReadFile("example.txt")
+// 	if err != nil {
+// 		log.Fatal(err)
+// 	}
+// 	s1 := string(stream)
+
+// 	fmt.Println(s1)
+// }
+
+/*
+HTTP server: easy to start one
+To stop: had to kill process; must be a less janky way
+*/
+
 func main() {
 
-	// StudentAge := make(map[string]int)
-
-	// StudentAge["Helen"] = 30
-	// StudentAge["Hung"] = 33
-	// StudentAge["Hieu"] = 35
-	// StudentAge["Hoa"] = 37
-	// fmt.Println(StudentAge)          // prints entire map
-	// fmt.Println(StudentAge["Helen"]) // prints key's value
-
-	kitties := map[string]map[string]string{
-		"Cali": map[string]string{
-			"coat":   "Calico",
-			"weight": "300g",
-		},
-		"White Paws": map[string]string{
-			"coat":   "Black and White",
-			"weight": "338g",
-		},
-		"All Black": map[string]string{
-			"coat":   "Black",
-			"weight": "302g",
-		},
-		"Tabby": map[string]string{
-			"coat":   "Tabby",
-			"weight": "342g",
-		},
+	http.HandleFunc("/", handler)
+	http.HandleFunc("/Hello", handler2)
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
+		log.Fatal("ListenAndServe: ", err)
 	}
 
-	if temp, kitten := kitties["Cali"]; kitten {
+}
 
-		fmt.Println("Cali", temp["coat"], temp["weight"])
-	}
+func handler(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Fprint(w, "Welcome to the Internet!")
+}
+
+func handler2(w http.ResponseWriter, r *http.Request) {
+
+	fmt.Fprint(w, "Ayyyyyloha!")
 }
 package main
 
