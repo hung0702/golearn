@@ -8,31 +8,7 @@ import (
 
 
 
-/*
-If/Switch statements for conditional logic
-*/
 
-// func main() {
-// 	age := 18
-// 	if age >= 18 {
-// 		fmt.Println("You vote!")
-// 	} else {
-// 		fmt.Println("You no vote!")
-// 	}
-// }
-
-// func main() {
-// 	age := 18
-
-// 	switch age {
-// 	case 17:
-// 		fmt.Println("You no vote!")
-// 	case 18:
-// 		fmt.Println("You vote now!")
-// 	default:
-// 		fmt.Println("How old is you?")
-// 	}
-// }
 
 /*
 Arrays: all elements same type (not immut), fixed length, and zero-indexed.
