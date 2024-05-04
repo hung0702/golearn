@@ -5,6 +5,7 @@ import "fmt"
 /*
 Structures: arrays but allows different data types; can define objects
 Interfaces: collection of methods; can be used to define behavior.
+	* Reference type, so it's always pointing and never copied
 */
 
 /*
